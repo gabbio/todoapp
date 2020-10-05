@@ -1,6 +1,5 @@
 import React from 'react';
-import { makeStyles } from '@material-ui/core/styles';
-import { Container, List, Paper } from '@material-ui/core';
+import { Container, List } from '@material-ui/core';
 import axios from 'axios';
 import { setCsrfToken } from '../utils/helpers'
 import Task from './Task';
@@ -13,18 +12,6 @@ class TasksList extends React.Component {
     }
     this.getTasksPath = '/tasks'
     this.updateTasksList = this.updateTasksList.bind(this);
-  }
-
-  useStyles() {
-    return makeStyles((theme) => ({
-      title: {
-        flexGrow: 1,
-      },
-      action: {
-        backgroundColor: "transparent",
-        boxShadow: "none"
-      }
-    }));
   }
 
   componentDidMount() {
@@ -45,14 +32,16 @@ class TasksList extends React.Component {
 
   // Update the list ito keep it ordered
   updateTasksList(checkedTask) {
-    let tasks = this.state.tasks.filter(task => task.id != checkedTask.id);
-    this.setState({ tasks: [checkedTask, ...tasks] });
+    let tasks = this.state.tasks
+    let task = tasks.find(task => task.id === checkedTask.id);
+    tasks[tasks.indexOf(task)] = checkedTask
+    this.setState({ tasks: tasks });
   }
 
   render() {
-    const classes = this.useStyles();
+    // const classes = this.useStyles();
     return (
-      <Paper>
+      <Container>
         <Container maxWidth="lg">
           <List>
             {this.state.tasks.filter(isChecked).map(task => (
@@ -67,7 +56,7 @@ class TasksList extends React.Component {
             ))}
           </List>
         </Container>
-      </Paper>
+      </Container>
     );
   }
 }

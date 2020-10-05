@@ -1,6 +1,5 @@
 import React from 'react';
-import { makeStyles } from '@material-ui/core/styles';
-import { Button, TextField, FormGroup, FormControl, Paper } from '@material-ui/core';
+import { Button, TextField, FormGroup, FormControl, Container } from '@material-ui/core';
 import axios from 'axios';
 import { setCsrfToken } from '../utils/helpers'
 
@@ -52,21 +51,21 @@ class AddTask extends React.Component {
 
   render() {
     return (
-      <Paper>
+      <Container>
         <form onSubmit={this.handleSubmit}>
-          <FormGroup variant="md">
+          <FormGroup>
             <FormControl margin="dense">
               <TextField id="description" label="Task Description" name="description" value={this.state.description} onChange={this.handleChange} />
             </FormControl>
             <FormControl margin="dense">
               <TextField id="avatar" label="Avatar URL" name="avatar" value={this.state.avatar} onChange={this.handleChange} />
             </FormControl>
-            <Button type="submit" variant="contained" color="primary">
-              Add Task
+            <Button variant="contained" style={{ width: '150px', left: '50%', margin: '30px 0 0 -75px' }} color="primary" margin="dense">
+              Add
             </Button>
           </FormGroup>
         </form>
-      </Paper>
+      </Container>
     );
   }
 }
