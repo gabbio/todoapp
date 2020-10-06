@@ -1,5 +1,11 @@
 # HOW TO LAUNCH THE APP
 
+* Installing dependencies
+
+  ```bash
+  bundle install --local
+  ```
+
 * Launching tests
   
   ``` bash
