@@ -60,7 +60,7 @@ class AddTask extends React.Component {
             <FormControl margin="dense">
               <TextField id="avatar" label="Avatar URL" name="avatar" value={this.state.avatar} onChange={this.handleChange} />
             </FormControl>
-            <Button variant="contained" style={{ width: '150px', left: '50%', margin: '30px 0 0 -75px' }} color="primary" margin="dense">
+            <Button type="submit" variant="contained" style={{ width: '150px', left: '50%', margin: '30px 0 0 -75px' }} color="primary" margin="dense">
               Add
             </Button>
           </FormGroup>
