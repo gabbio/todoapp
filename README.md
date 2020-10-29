@@ -1,9 +1,15 @@
 # HOW TO LAUNCH THE APP
 
-* Installing dependencies
+* Installing Rails dependencies
 
   ```bash
   bundle install --local
+  ```
+
+* Installing React dependencies
+
+  ```bash
+  yarn install
   ```
 
 * Launching tests
@@ -18,7 +24,7 @@
   bundle exec rails s
   ```
 
-* Lauching the front-end
+* Lauching the front-end in another terminal
   
   ``` bash
   ./bin/webpack-dev-server
